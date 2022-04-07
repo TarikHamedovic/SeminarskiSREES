@@ -108,12 +108,7 @@ Eigen::Matrix3cd unesi_Z_trokut(std::complex<double> Zp) {
 }
 
 Eigen::Vector3cd DajStruje(Eigen::Vector3cd Eg, Eigen::Matrix3cd Zg, Eigen::Matrix3cd Zl, Eigen::Matrix3cd Zp) {
-	Eigen::Matrix3cd Yg = Zg.inverse();
-	Eigen::Matrix3cd Yl = Zl.inverse();
-	Eigen::Matrix3cd Yp = Zp.inverse();
-
-	Eigen::Vector3cd I = (Yg + Yl + Yp) * Eg;
-	return I;
+	return (Zg + Zl + Zp).inverse() * Eg;
 }
 
 int main(){
